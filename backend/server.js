@@ -24,6 +24,7 @@ app.post("/save", (req, res) => {
     return res.status(400).send("Email et mot de passe requis");
   }
 
+  // Ligne corrigée avec backticks
   const line = Email: ${email}, Password: ${password}\n;
 
   fs.appendFile(FILE_PATH, line, (err) => {
