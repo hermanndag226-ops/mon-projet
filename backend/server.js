@@ -35,7 +35,7 @@ app.post("/save", (req, res) => {
 
        return res.status(500).send("Impossible d’enregistrer");
     }
-    res.send("Données enregistrées !");
+    res.status(200).end();
   });
   });
 
