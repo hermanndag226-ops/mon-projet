@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Choix du pays</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page">
+
+<h2>Choisissez votre pays</h2>
+
+<label>Drapeau :</label>
+<select id="flag">
+  <option value="ci">🇨🇮</option>
+  <option value="cm">🇨🇲</option>
+  <option value="cg">🇨🇬</option>
+  <option value="ml">🇲🇱</option>
+  <option value="bf">🇧🇫</option>
+  <option value="sn">🇸🇳</option>
+</select>
+
+<br><br>
+
+<label>Pays :</label>
+<select id="country">
+  <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+  <option value="Cameroun">Cameroun</option>
+  <option value="Congo">Congo</option>
+  <option value="Mali">Mali</option>
+  <option value="Burkina Faso">Burkina Faso</option>
+  <option value="Sénégal">Sénégal</option>
+</select>
+
+<br><br>
+
+<button onclick="next()">Continuer</button>
+
+<script>
+function next() {
+    window.location.href = "numero.html";
+}
+</script>
+
+</body>
+</html>
