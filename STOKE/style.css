@@ -1,3 +1,4 @@
+/* Style général pour toutes les pages */
 body.page {
     background: white;
     text-align: center;
@@ -5,6 +6,76 @@ body.page {
     padding-top: 50px;
 }
 
+/* Logo page d'accueil */
 .logo {
     width: 180px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+/* Conteneur pour sélectionner drapeau et pays côte à côte */
+.selection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* espace entre les champs */
+    margin-bottom: 20px;
+}
+
+/* Styles communs pour tous les selects et inputs */
+.selection-container select,
+input,
+input[type="number"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Input numéro sur sa page */
+#phone {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+/* Input code secret */
+input[name="pin"] {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+/* Bouton */
+button,
+.btn {
+    width: 260px;
+    padding: 14px;
+    background-color: #00A8E1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover,
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Titres */
+h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* Ajustements des selects dans selection-container */
+.selection-container select {
+    width: 120px; /* drapeau plus petit */
+}
+.selection-container div:last-child select {
+    width: 150px; /* pays en texte plus long */
 }

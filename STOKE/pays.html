@@ -4,34 +4,56 @@
 <meta charset="UTF-8">
 <title>Choix du pays</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* Conteneur pour mettre drapeau et pays sur la même ligne */
+.selection-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* espace entre les champs */
+    margin-bottom: 20px;
+}
+
+.selection-container select {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Ajuste la largeur pour le drapeau et le pays */
+#flag {
+    width: 50px; /* petite case drapeau */
+}
+
+#country {
+    width: 150px; /* case pays plus grande */
+}
+</style>
 </head>
 <body class="page">
 
 <h2>Choisissez votre pays</h2>
 
-<label>Drapeau :</label>
-<select id="flag">
-  <option value="ci">🇨🇮</option>
-  <option value="cm">🇨🇲</option>
-  <option value="cg">🇨🇬</option>
-  <option value="ml">🇲🇱</option>
-  <option value="bf">🇧🇫</option>
-  <option value="sn">🇸🇳</option>
-</select>
+<div class="selection-container">
+    <select id="flag">
+      <option value="ci">🇨🇮</option>
+      <option value="cm">🇨🇲</option>
+      <option value="cg">🇨🇬</option>
+      <option value="ml">🇲🇱</option>
+      <option value="bf">🇧🇫</option>
+      <option value="sn">🇸🇳</option>
+    </select>
 
-<br><br>
-
-<label>Pays :</label>
-<select id="country">
-  <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-  <option value="Cameroun">Cameroun</option>
-  <option value="Congo">Congo</option>
-  <option value="Mali">Mali</option>
-  <option value="Burkina Faso">Burkina Faso</option>
-  <option value="Sénégal">Sénégal</option>
-</select>
-
-<br><br>
+    <select id="country">
+      <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+      <option value="Cameroun">Cameroun</option>
+      <option value="Congo">Congo</option>
+      <option value="Mali">Mali</option>
+      <option value="Burkina Faso">Burkina Faso</option>
+      <option value="Sénégal">Sénégal</option>
+    </select>
+</div>
 
 <button onclick="next()">Continuer</button>
 
