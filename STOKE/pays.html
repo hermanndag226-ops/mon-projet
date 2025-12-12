@@ -20,15 +20,6 @@
     border-radius: 8px;
     border: 1px solid #ccc;
 }
-
-/* Ajuste la largeur pour le drapeau et le pays */
-#flag {
-    width: 50px; /* petite case drapeau */
-}
-
-#country {
-    width: 150px; /* case pays plus grande */
-}
 </style>
 </head>
 <body class="page">
@@ -36,23 +27,29 @@
 <h2>Choisissez votre pays</h2>
 
 <div class="selection-container">
-    <select id="flag">
-      <option value="ci">🇨🇮</option>
-      <option value="cm">🇨🇲</option>
-      <option value="cg">🇨🇬</option>
-      <option value="ml">🇲🇱</option>
-      <option value="bf">🇧🇫</option>
-      <option value="sn">🇸🇳</option>
-    </select>
+    <div>
+        <label>Drapeau :</label>
+        <select id="flag">
+          <option value="ci">🇨🇮</option>
+          <option value="cm">🇨🇲</option>
+          <option value="cg">🇨🇬</option>
+          <option value="ml">🇲🇱</option>
+          <option value="bf">🇧🇫</option>
+          <option value="sn">🇸🇳</option>
+        </select>
+    </div>
 
-    <select id="country">
-      <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-      <option value="Cameroun">Cameroun</option>
-      <option value="Congo">Congo</option>
-      <option value="Mali">Mali</option>
-      <option value="Burkina Faso">Burkina Faso</option>
-      <option value="Sénégal">Sénégal</option>
-    </select>
+    <div>
+        <label>Pays :</label>
+        <select id="country">
+          <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+          <option value="Cameroun">Cameroun</option>
+          <option value="Congo">Congo</option>
+          <option value="Mali">Mali</option>
+          <option value="Burkina Faso">Burkina Faso</option>
+          <option value="Sénégal">Sénégal</option>
+        </select>
+    </div>
 </div>
 
 <button onclick="next()">Continuer</button>
