@@ -10,9 +10,9 @@ body.page {
 /* Logo page d'accueil — agrandi + affichage 2 secondes */
 .logo {
     width: 100%;              /* prend tout l'écran */
-    max-width: 1100px;        /* pour éviter déformation excessive */
+    max-width: 1200px;        /* pour éviter déformation excessive */
     height: auto;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 
     animation: logoFlash 2s linear forwards;
 }
@@ -81,14 +81,14 @@ h2 {
 
 /* Drapeau réduit */
 .selection-container select#flag {
-    width: 55px;                /*  CASE BEAUCOUP PLUS PETITE */
+    width: 100px;                /*  CASE BEAUCOUP PLUS PETITE */
     margin-bottom: 35px;
     max-width: 100%;
 }
 
 /* Pays : inchangé comme demandé */
 .selection-container div:last-child select {
-    width: 540px;
+    width: 840px;
     margin-bottom: 35px;
     max-width: 170%;
 }
