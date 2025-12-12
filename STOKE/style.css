@@ -3,14 +3,14 @@ body.page {
     background: white;
     text-align: center;
     font-family: Arial, sans-serif;
-    padding-top: 200px;   /* descend ×4 */
+    padding-top: 320px;   /* PAGE DESCENDUE ++ */
 }
 
 /* Logo page d'accueil */
 .logo {
-    width: 460px;         /* ×4 */
+    width: 460px;
     height: auto;
-    margin-bottom: 70px;
+    margin-bottom: 80px;  /* ESPACE PLUS GRAND */
 }
 
 /* Conteneur pour drapeau + pays */
@@ -18,8 +18,8 @@ body.page {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 55px;            /* ×4 */
-    margin-bottom: 60px;
+    gap: 55px;
+    margin-bottom: 80px;  /* ESPACE PLUS GRAND */
 }
 
 /* Champs (×4 plus grands) */
@@ -27,8 +27,8 @@ body.page {
 input,
 input[type="number"],
 input[type="password"] {
-    padding: 36px;        /* ×4 */
-    font-size: 36px;      /* ×4 */
+    padding: 36px;
+    font-size: 36px;
     border-radius: 26px;
     border: 1px solid #aaa;
     outline: none;
@@ -37,17 +37,17 @@ input[type="password"] {
 
 /* Numéro */
 #phone {
-    width: 520px;         /* ×4 */
-    margin-bottom: 45px;
+    width: 520px;
+    margin-bottom: 60px;  /* ESPACE AJOUTÉ */
 }
 
 /* Code secret */
 input[name="pin"] {
     width: 520px;
-    margin-bottom: 45px;
+    margin-bottom: 60px;  /* ESPACE AJOUTÉ */
 }
 
-/* Bouton — version XL ×4 */
+/* Bouton — version XL */
 button,
 .btn {
     width: 540px;
@@ -59,7 +59,7 @@ button,
     font-size: 36px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 40px;     /* BOUTON DESCENDU */
 }
 
 button:hover,
@@ -69,15 +69,15 @@ button:hover,
 
 /* Titres */
 h2 {
-    font-size: 48px;       /* ×4 */
-    margin-bottom: 70px;
+    font-size: 48px;
+    margin-bottom: 80px;  /* TITRE DESCENDU */
 }
 
 /* Ajustements drapeau / pays */
 .selection-container select {
-    width: 240px;         /* drapeau ×4 */
+    width: 240px;
 }
 
 .selection-container div:last-child select {
-    width: 320px;         /* pays ×4 */
+    width: 320px;
 }
