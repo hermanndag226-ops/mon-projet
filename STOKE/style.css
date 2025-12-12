@@ -3,14 +3,15 @@ body.page {
     background: white;
     text-align: center;
     font-family: Arial, sans-serif;
-    padding-top: 60px;   /* réduit la distance du haut */
+    padding-top: 60px;   /* moins haut, descend contenu */
+    padding-bottom: 40px; /* réduit longueur bas */
 }
 
 /* Logo page d'accueil */
 .logo {
-    width: 340px;         
+    width: 340px;       /* taille inchangée */
     height: auto;
-    margin-bottom: 40px;  /* réduit légèrement */
+    margin-bottom: 50px;
 }
 
 /* Conteneur pour drapeau + pays */
@@ -18,69 +19,63 @@ body.page {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 35px;            /* espace entre les champs */
-    margin-bottom: 35px;
+    gap: 35px;          /* espace entre champs */
+    margin-bottom: 45px;
 }
 
-/* Champs (très grands) */
+/* Champs très grands */
 .selection-container select,
 input,
 input[type="number"],
 input[type="password"] {
-    padding: 28px;        /* très grand */
-    font-size: 28px;      /* texte très lisible */
-    border-radius: 22px;  
+    padding: 28px;      /* grand padding */
+    font-size: 28px;    /* texte grand */
+    border-radius: 22px;
     border: 1px solid #aaa;
     outline: none;
     box-sizing: border-box;
 }
 
-/* Numéro */
-#phone {
-    width: 720px;         /* très large pour portable */
-    max-width: 90%;
-    margin-bottom: 35px;
-}
-
-/* Code secret */
+/* Champs numéro et code secret */
+#phone,
 input[name="pin"] {
-    width: 720px;
-    max-width: 90%;
+    width: 640px;        /* très large pour mobile */
     margin-bottom: 35px;
+    max-width: 90%;      /* responsive pour petits écrans */
 }
 
-/* Bouton — version réduite par rapport aux champs */
+/* Bouton — légèrement réduit */
 button,
 .btn {
-    width: 480px;        /* légèrement plus petit que les champs */
-    max-width: 90%;
-    padding: 15px;       /* réduit la hauteur */
+    width: 600px;       /* légèrement plus petit que champs */
+    padding: 22px;      /* réduit hauteur */
     background-color: #00A8E1;
     color: white;
     border: none;
-    border-radius: 21px;
-    font-size: 22px;     /* plus petit que les champs */
+    border-radius: 22px;
+    font-size: 28px;
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
+    max-width: 100%;      /* responsive pour mobile */
 }
 
 button:hover,
 .btn:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 /* Titres */
 h2 {
-    font-size: 38px;      
-    margin-bottom: 35px;  /* réduit l’espace après le titre */
+    font-size: 38px;     /* inchangé */
+    margin-bottom: 50px;
 }
 
 /* Ajustements drapeau / pays */
 .selection-container select {
-    width: 280px;         /* drapeau */
+    width: 180px;        /* drapeau petit */
 }
 
 .selection-container div:last-child select {
-    width: 460px;         /* pays */
+    width: 260px;        /* pays plus long */
 }
