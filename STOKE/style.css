@@ -3,60 +3,60 @@ body.page {
     background: white;
     text-align: center;
     font-family: Arial, sans-serif;
-    padding-top: 50px;
+    padding-top: 90px; /* plus d’espace */
 }
 
 /* Logo page d'accueil */
 .logo {
-    width: 180px;
+    width: 260px;       /* + grand */
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
-/* Conteneur pour sélectionner drapeau et pays côte à côte */
+/* Conteneur pour drapeau + pays */
 .selection-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px; /* espace entre les champs */
-    margin-bottom: 20px;
+    gap: 25px;          /* espace entre drapeau/pays */
+    margin-bottom: 35px;
 }
 
-/* Styles communs pour tous les selects et inputs */
+/* Champs agrandis (2×) */
 .selection-container select,
 input,
 input[type="number"],
 input[type="password"] {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 12px;
-    border: 1px solid #ccc;
+    padding: 22px;         /* + grand */
+    font-size: 22px;       /* + grand */
+    border-radius: 18px;   /* + grand */
+    border: 1px solid #bbb;
     outline: none;
     box-sizing: border-box;
 }
 
-/* Input numéro sur sa page */
+/* Input numéro (plus large) */
 #phone {
-    width: 250px;
-    margin-bottom: 20px;
+    width: 340px;         /* + large */
+    margin-bottom: 30px;
 }
 
-/* Input code secret */
+/* Input code secret (plus large) */
 input[name="pin"] {
-    width: 250px;
-    margin-bottom: 20px;
+    width: 340px;         /* + large */
+    margin-bottom: 30px;
 }
 
-/* Bouton */
+/* Bouton (2× plus grand) */
 button,
 .btn {
-    width: 260px;
-    padding: 14px;
+    width: 360px;         /* + large */
+    padding: 22px;        /* + grand */
     background-color: #00A8E1;
     color: white;
     border: none;
-    border-radius: 12px;
-    font-size: 16px;
+    border-radius: 18px;  /* plus arrondi */
+    font-size: 22px;      /* + grand */
     font-weight: bold;
     cursor: pointer;
 }
@@ -68,14 +68,15 @@ button:hover,
 
 /* Titres */
 h2 {
-    font-size: 22px;
-    margin-bottom: 25px;
+    font-size: 32px;      /* + grand */
+    margin-bottom: 40px;
 }
 
-/* Ajustements des selects dans selection-container */
+/* Ajustements drapeau + pays */
 .selection-container select {
-    width: 120px; /* drapeau plus petit */
+    width: 160px;         /* drapeau plus large */
 }
+
 .selection-container div:last-child select {
-    width: 150px; /* pays en texte plus long */
+    width: 220px;         /* pays plus large */
 }
