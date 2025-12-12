@@ -4,22 +4,22 @@ body.page {
     text-align: center;
     font-family: Arial, sans-serif;
     padding-top: 60px;
-    padding-bottom: 40px;
+    padding-bottom: 70px;
+    margin: 0;
 }
 
 /* Logo page d'accueil — agrandi + affichage 2 secondes */
 .logo {
-    width: 100%;              /* prend tout l'écran */
-    max-width: 2000px;        /* pour éviter déformation excessive */
+    width: 100%;
+    max-width: 5000px;  /* reste énorme pour desktop */
     height: auto;
-    margin-bottom: 100px;
-
-    animation: logoFlash 1s linear forwards;
+    margin-bottom: 70px;
+    animation: logoFlash 2s linear forwards;
 }
 
 @keyframes logoFlash {
     0% { opacity: 1; }
-    100% { opacity: 1; }      /* reste visible 2 secondes */
+    100% { opacity: 1; }
 }
 
 /* Conteneur drapeau + pays */
@@ -29,6 +29,7 @@ body.page {
     align-items: center;
     gap: 70px;
     margin-bottom: 60px;
+    flex-wrap: wrap; /* permet adaptation mobile */
 }
 
 /* Champs */
@@ -47,15 +48,16 @@ input[type="password"] {
 /* Champs numéro + code secret — largeur encore plus grande */
 #phone,
 input[name="pin"] {
-    width: 850px;        /* 🔥 AGRANDI comme demandé */
+    width: 850px;        /* garde taille desktop */
+    max-width: 100%;     /* s’adapte sur mobile */
     margin-bottom: 70px;
-    max-width: 100%;
 }
 
 /* Boutons */
 button,
 .btn {
     width: 600px;
+    max-width: 90%;      /* s’adapte aux petits écrans */
     padding: 22px;
     background-color: #00A8E1;
     color: white;
@@ -65,9 +67,9 @@ button,
     font-weight: bold;
     cursor: pointer;
     margin-top: 10px;
-    max-width: 90%;
 }
 
+/* Boutons hover */
 button:hover,
 .btn:hover {
     opacity: 0.9;
@@ -81,14 +83,34 @@ h2 {
 
 /* Drapeau réduit */
 .selection-container select#flag {
-    width: 100px;                /*  CASE BEAUCOUP PLUS PETITE */
-    margin-bottom: 35px;
+    width: 100px;
     max-width: 100%;
+    margin-bottom: 35px;
 }
 
-/* Pays : inchangé comme demandé */
+/* Pays : inchangé */
 .selection-container div:last-child select {
     width: 740px;
+    max-width: 100%;
     margin-bottom: 35px;
-    max-width: 150%;
+}
+
+/* --- Responsive mobile --- */
+@media (max-width: 768px) {
+    .selection-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    #phone,
+    input[name="pin"],
+    .selection-container div:last-child select {
+        width: 95%;       /* adapte à l’écran mobile */
+    }
+    button,
+    .btn {
+        width: 95%;       /* adapte à l’écran mobile */
+    }
+    h2 {
+        font-size: 32px;  /* reste lisible */
+    }
 }

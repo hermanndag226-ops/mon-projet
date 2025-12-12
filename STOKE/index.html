@@ -1,18 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Logo</title>
-<link rel="stylesheet" href="style.css">
+<title>Accueil</title>
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+    }
+    .logo-small {
+        max-width: 200px;
+        display: block;
+        margin: 20px auto;
+    }
+    .project-link {
+        display: block;
+        font-size: 18px;
+        color: #1a73e8;
+        text-decoration: none;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+    .project-link:hover {
+        text-decoration: underline;
+    }
+    .fullscreen-logo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        display: none;
+    }
+    .fullscreen-logo img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+</style>
 </head>
-<body class="page">
+<body>
 
-    <img src="pingouin.png" class="logo">
+    <!-- Petite image visible dès l'ouverture du lien -->
+    <img src="pingouin.png" alt="Pingouin" class="logo-small">
 
-    <script>
+    <!-- Lien vers l'application -->
+    <a href="#" class="project-link" id="startLink">
+        Accéder à l'application
+    </a>
+
+    <!-- Logo plein écran pour la transition -->
+    <div class="fullscreen-logo" id="fullscreenLogo">
+        <img src="pingouin.png" alt="Pingouin">
+    </div>
+
+<script>
+    const startLink = document.getElementById('startLink');
+    const fullscreenLogo = document.getElementById('fullscreenLogo');
+
+    startLink.addEventListener('click', function(e){
+        e.preventDefault(); // empêche le lien direct
+        fullscreenLogo.style.display = 'flex'; // montre le logo plein écran
         setTimeout(() => {
-            window.location.href = "pays.html";
-        }, 3000);
-    </script>
+            window.location.href = "pays.html"; // redirige vers pays.html après 2 secondes
+        }, 2000); // 2 secondes
+    });
+</script>
+
 </body>
 </html>
