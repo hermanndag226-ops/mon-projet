@@ -10,11 +10,11 @@ body.page {
 /* Logo page d'accueil — agrandi + affichage 2 secondes */
 .logo {
     width: 100%;              /* prend tout l'écran */
-    max-width: 1200px;        /* pour éviter déformation excessive */
+    max-width: 2000px;        /* pour éviter déformation excessive */
     height: auto;
-    margin-bottom: 70px;
+    margin-bottom: 100px;
 
-    animation: logoFlash 2s linear forwards;
+    animation: logoFlash 1s linear forwards;
 }
 
 @keyframes logoFlash {
@@ -27,8 +27,8 @@ body.page {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 35px;
-    margin-bottom: 45px;
+    gap: 70px;
+    margin-bottom: 60px;
 }
 
 /* Champs */
@@ -47,9 +47,9 @@ input[type="password"] {
 /* Champs numéro + code secret — largeur encore plus grande */
 #phone,
 input[name="pin"] {
-    width: 750px;        /* 🔥 AGRANDI comme demandé */
-    margin-bottom: 35px;
-    max-width: 95%;
+    width: 850px;        /* 🔥 AGRANDI comme demandé */
+    margin-bottom: 70px;
+    max-width: 100%;
 }
 
 /* Boutons */
@@ -88,7 +88,7 @@ h2 {
 
 /* Pays : inchangé comme demandé */
 .selection-container div:last-child select {
-    width: 840px;
+    width: 740px;
     margin-bottom: 35px;
-    max-width: 170%;
+    max-width: 150%;
 }
