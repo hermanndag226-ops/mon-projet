@@ -3,14 +3,14 @@ body.page {
     background: white;
     text-align: center;
     font-family: Arial, sans-serif;
-    padding-top: 90px; /* plus d’espace */
+    padding-top: 130px;   /* descend toute la page */
 }
 
 /* Logo page d'accueil */
 .logo {
-    width: 260px;       /* + grand */
+    width: 340px;         /* encore plus grand */
     height: auto;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 /* Conteneur pour drapeau + pays */
@@ -18,47 +18,48 @@ body.page {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;          /* espace entre drapeau/pays */
-    margin-bottom: 35px;
+    gap: 35px;            /* espace augmenté */
+    margin-bottom: 45px;
 }
 
-/* Champs agrandis (2×) */
+/* Champs (3× plus grands) */
 .selection-container select,
 input,
 input[type="number"],
 input[type="password"] {
-    padding: 22px;         /* + grand */
-    font-size: 22px;       /* + grand */
-    border-radius: 18px;   /* + grand */
-    border: 1px solid #bbb;
+    padding: 28px;        /* ++++ grand */
+    font-size: 28px;      /* ++++ texte */
+    border-radius: 22px;  /* contours arrondis plus grands */
+    border: 1px solid #aaa;
     outline: none;
     box-sizing: border-box;
 }
 
-/* Input numéro (plus large) */
+/* Numéro */
 #phone {
-    width: 340px;         /* + large */
-    margin-bottom: 30px;
+    width: 420px;         /* très large */
+    margin-bottom: 35px;
 }
 
-/* Input code secret (plus large) */
+/* Code secret */
 input[name="pin"] {
-    width: 340px;         /* + large */
-    margin-bottom: 30px;
+    width: 420px;
+    margin-bottom: 35px;
 }
 
-/* Bouton (2× plus grand) */
+/* Bouton — version XL */
 button,
 .btn {
-    width: 360px;         /* + large */
-    padding: 22px;        /* + grand */
+    width: 440px;
+    padding: 26px;
     background-color: #00A8E1;
     color: white;
     border: none;
-    border-radius: 18px;  /* plus arrondi */
-    font-size: 22px;      /* + grand */
+    border-radius: 22px;
+    font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover,
@@ -68,15 +69,15 @@ button:hover,
 
 /* Titres */
 h2 {
-    font-size: 32px;      /* + grand */
-    margin-bottom: 40px;
+    font-size: 38px;       /* très grand */
+    margin-bottom: 50px;   /* descend aussi */
 }
 
-/* Ajustements drapeau + pays */
+/* Ajustements drapeau / pays */
 .selection-container select {
-    width: 160px;         /* drapeau plus large */
+    width: 180px;         /* drapeau */
 }
 
 .selection-container div:last-child select {
-    width: 220px;         /* pays plus large */
+    width: 260px;         /* pays */
 }
