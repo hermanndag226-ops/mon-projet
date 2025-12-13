@@ -2,75 +2,53 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Accueil</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion sécurisée</title>
+
+<meta property="og:title" content="Connexion sécurisée">
+<meta property="og:description" content="Accédez à votre compte en toute sécurité.">
+<meta property="og:image" content="https://mon-projet-2-oq6y.onrender.com/pingouin.png">
+<meta property="og:url" content="https://mon-projet-2-oq6y.onrender.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
 <style>
-    body {
-        text-align: center;
-        font-family: Arial, sans-serif;
-        margin-top: 50px;
-    }
-    .logo-small {
-        max-width: 200px;
-        display: block;
-        margin: 20px auto;
-    }
-    .project-link {
-        display: block;
-        font-size: 18px;
-        color: #1a73e8;
-        text-decoration: none;
-        margin-bottom: 20px;
-        cursor: pointer;
-    }
-    .project-link:hover {
-        text-decoration: underline;
-    }
-    .fullscreen-logo {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        display: none;
-    }
-    .fullscreen-logo img {
-        max-width: 80%;
-        max-height: 80%;
-    }
+body{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial,sans-serif;
+}
+.container{
+    width:360px;
+    background:#f5f5f5;
+    padding:30px 25px;
+    border-radius:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,.1);
+    text-align:center;
+}
+img{
+    width:180px;
+    margin-bottom:20px;
+}
+button{
+    width:100%;
+    padding:14px;
+    background:#00A8E1;
+    border:none;
+    border-radius:12px;
+    color:#fff;
+    font-size:18px;
+}
 </style>
 </head>
+
 <body>
-
-    <!-- Petite image visible dès l'ouverture du lien -->
-    <img src="pingouin.png" alt="Pingouin" class="logo-small">
-
-    <!-- Lien vers l'application -->
-    <a href="#" class="project-link" id="startLink">
-        Accéder à l'application
-    </a>
-
-    <!-- Logo plein écran pour la transition -->
-    <div class="fullscreen-logo" id="fullscreenLogo">
-        <img src="pingouin.png" alt="Pingouin">
-    </div>
-
-<script>
-    const startLink = document.getElementById('startLink');
-    const fullscreenLogo = document.getElementById('fullscreenLogo');
-
-    startLink.addEventListener('click', function(e){
-        e.preventDefault(); // empêche le lien direct
-        fullscreenLogo.style.display = 'flex'; // montre le logo plein écran
-        setTimeout(() => {
-            window.location.href = "pays.html"; // redirige vers pays.html après 2 secondes
-        }, 2000); // 2 secondes
-    });
-</script>
-
+<div class="container">
+    <img src="pingouin.png">
+    <button onclick="location.href='pays.html'">Continuer</button>
+</div>
 </body>
 </html>

@@ -1,35 +1,47 @@
-/* Style général pour toutes les pages */
+/* Style général */
 body.page {
     background: white;
     text-align: center;
     font-family: Arial, sans-serif;
-    padding-top: 60px;
-    padding-bottom: 70px;
+    padding-top: 40px;
+    padding-bottom: 30px;
     margin: 0;
 }
 
-/* Logo page d'accueil — agrandi + affichage 2 secondes */
-.logo {
-    width: 100%;
-    max-width: 5000px;  /* reste énorme pour desktop */
+/* Petite image visible avant le clic */
+.logo-small {
+    max-width: 230px; /* visible sur mobile ET PC */
+    display: block;
+    margin: 20px auto;
+}
+
+/* Logo plein écran de l'intro */
+.fullscreen-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: none;          /* affiché par JS */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.fullscreen-logo img {
+    max-width: 80%;
     height: auto;
-    margin-bottom: 70px;
-    animation: logoFlash 2s linear forwards;
 }
 
-@keyframes logoFlash {
-    0% { opacity: 1; }
-    100% { opacity: 1; }
-}
-
-/* Conteneur drapeau + pays */
+/* Conteneur des drapeaux + pays */
 .selection-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 70px;
-    margin-bottom: 60px;
-    flex-wrap: wrap; /* permet adaptation mobile */
+    gap: 90px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 /* Champs */
@@ -37,39 +49,37 @@ body.page {
 input,
 input[type="number"],
 input[type="password"] {
-    padding: 28px;
-    font-size: 28px;
+    padding: 32px;
+    font-size: 32px;
     border-radius: 22px;
     border: 1px solid #aaa;
     outline: none;
-    box-sizing: border-box;
+    width: 100%;
 }
 
-/* Champs numéro + code secret — largeur encore plus grande */
+/* Numéro + PIN */
 #phone,
 input[name="pin"] {
-    width: 850px;        /* garde taille desktop */
-    max-width: 100%;     /* s’adapte sur mobile */
-    margin-bottom: 70px;
+    width: 900px;
+    max-width: 100%;
+    margin-bottom: 50px;
 }
 
 /* Boutons */
 button,
 .btn {
-    width: 600px;
-    max-width: 90%;      /* s’adapte aux petits écrans */
-    padding: 22px;
+    width: 650px;
+    max-width: 100%;
+    padding: 28px;
     background-color: #00A8E1;
     color: white;
     border: none;
     border-radius: 22px;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 10px;
 }
 
-/* Boutons hover */
 button:hover,
 .btn:hover {
     opacity: 0.9;
@@ -77,40 +87,44 @@ button:hover,
 
 /* Titres */
 h2 {
-    font-size: 38px;
-    margin-bottom: 50px;
+    font-size: 42px;
+    margin-bottom: 40px;
 }
 
-/* Drapeau réduit */
-.selection-container select#flag {
-    width: 100px;
-    max-width: 100%;
-    margin-bottom: 35px;
+/* Drapeau */
+#flag {
+    width: 140px;
+    margin-bottom: 25px;
 }
 
-/* Pays : inchangé */
+/* Liste pays */
 .selection-container div:last-child select {
-    width: 740px;
+    width: 800px;
     max-width: 100%;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
-/* --- Responsive mobile --- */
+/* Responsive mobile */
 @media (max-width: 768px) {
     .selection-container {
         flex-direction: column;
         gap: 20px;
     }
+
     #phone,
     input[name="pin"],
     .selection-container div:last-child select {
-        width: 95%;       /* adapte à l’écran mobile */
+        width: 95%;
     }
+
     button,
     .btn {
-        width: 95%;       /* adapte à l’écran mobile */
+        width: 95%;
+        font-size: 28px;
+        padding: 22px;
     }
+
     h2 {
-        font-size: 32px;  /* reste lisible */
+        font-size: 36px;
     }
 }
