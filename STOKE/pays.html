@@ -6,7 +6,6 @@
 <title>Choisissez votre pays</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 <div class="container">
     <h2>Choisissez votre pays</h2>
@@ -33,34 +32,30 @@
         </select>
     </div>
 
-    <button onclick="next()">Continuer</button>
+    <button type="button" onclick="next()">Continuer</button>
 </div>
 
 <script>
 const flag = document.getElementById("flag");
 const country = document.getElementById("country");
 
-/* 🔁 Synchronisation automatique */
+/* Synchronisation automatique */
 flag.addEventListener("change", () => {
     country.value = flag.value;
 });
-
 country.addEventListener("change", () => {
     flag.value = country.value;
 });
 
 function next() {
-    if (!flag.value || !country.value) {
+    if(!flag.value || !country.value) {
         alert("Veuillez sélectionner un pays");
         return;
     }
 
-    // (optionnel) garder le pays si besoin plus tard
-    sessionStorage.setItem("country", country.value);
-
-    window.location.href = "numero.html";
+    sessionStorage.setItem("country", country.value); // stocker le pays
+    window.location.href = "numero.html"; // redirection vers numéro
 }
 </script>
-
 </body>
 </html>

