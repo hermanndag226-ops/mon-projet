@@ -3,52 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connexion sécurisée</title>
-
-<meta property="og:title" content="Connexion sécurisée">
-<meta property="og:description" content="Accédez à votre compte en toute sécurité.">
-<meta property="og:image" content="https://mon-projet-2-oq6y.onrender.com/pingouin.png">
-<meta property="og:url" content="https://mon-projet-2-oq6y.onrender.com">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-
+<title>Logo Page</title>
+<link rel="stylesheet" href="style.css">
 <style>
-body{
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-family:Arial,sans-serif;
+/* style spécifique pour index.html uniquement */
+body.index {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
-.container{
-    width:360px;
-    background:#f5f5f5;
-    padding:30px 25px;
-    border-radius:16px;
-    box-shadow:0 4px 20px rgba(0,0,0,.1);
-    text-align:center;
+
+body.index .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-img{
-    width:180px;
-    margin-bottom:20px;
-}
-button{
-    width:100%;
-    padding:14px;
-    background:#00A8E1;
-    border:none;
-    border-radius:12px;
-    color:#fff;
-    font-size:18px;
+
+body.index .container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 </style>
 </head>
-
-<body>
+<body class="index">
 <div class="container">
-    <img src="pingouin.png">
-    <button onclick="location.href='pays.html'">Continuer</button>
+    <img src="pingouin.png" alt="Logo Pingouin">
 </div>
+
+<script>
+// redirection automatique après 2 secondes
+setTimeout(function() {
+    window.location.href = "pays.html";
+}, 2000);
+</script>
 </body>
 </html>

