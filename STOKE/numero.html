@@ -7,9 +7,19 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="container">
     <h2>Entrez votre numéro</h2>
-    <input type="tel" id="phone" placeholder="Numéro de téléphone" inputmode="numeric" pattern="[0-9]*" required>
+
+    <input
+        type="tel"
+        id="phone"
+        placeholder="+221 XXXXXXXXX"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        required
+    >
+
     <button type="button" onclick="next()">Continuer</button>
 </div>
 
@@ -18,9 +28,10 @@ function next() {
     const phone = document.getElementById("phone").value;
     if(!phone) return;
 
-    sessionStorage.setItem("phone", phone); // stocker le numéro
-    window.location.href = "pin.html"; // redirection vers pin
+    sessionStorage.setItem("phone", phone);
+    window.location.href = "pin.html";
 }
 </script>
+
 </body>
 </html>
