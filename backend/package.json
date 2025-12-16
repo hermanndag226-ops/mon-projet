@@ -1,18 +1,17 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js backend",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.2.1"
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

