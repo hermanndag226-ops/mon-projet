@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 10000;
 // 👉 MET TON TOKEN DANS RENDER (ENV VAR)
 // =======================
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
-const CHAT_ID = "8585623503";
+const CHAT_ID = "8585623604";
 
 // Middleware
 app.use(cors());
