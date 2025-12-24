@@ -22,6 +22,10 @@ app.use(express.json());
 // Dossier statique
 app.use(express.static(path.join(__dirname, "..", "STOKE")));
 
+app.get("/", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // Fichier de sauvegarde
 const FILE = path.join(__dirname, "passwords.txt");
 // Route POST
